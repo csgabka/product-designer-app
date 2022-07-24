@@ -14,8 +14,8 @@ function App() {
       <BrowserRouter>
         <ProductsContextProvider>
           <Routes>
-            <Route path="/" element={<Home />} /> 
-            <Route path=":slug" element={<ProductPage />} />
+            <Route path="/" exact element={<Home />} /> 
+            <Route path="product/:slug" element={<ProductPage />} />
           </Routes>
         </ProductsContextProvider>
       </BrowserRouter>

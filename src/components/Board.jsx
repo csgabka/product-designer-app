@@ -1,19 +1,10 @@
-import { useProducts } from "../context/ProductsContext";
-import Spinner from 'react-bootstrap/Spinner';
-
-const Board = () => {
-    const { selectedProduct, error, loading } = useProducts();
+const Board = (props) => {
+    const { selectedProduct } = props;   
 
     return (
     <>
-      {loading && <Spinner animation="border" />}
-      {error && <div>Couldn't find product!</div>}
-      {!loading && (
-        <>
-          <p>{selectedProduct.name}</p>
-          <img src={selectedProduct.image} alt={selectedProduct.name} />
-        </>
-      )}
+        <p>{selectedProduct.name}</p>
+        <img src={selectedProduct.image} alt={selectedProduct.name} />
     </>
     );
 }
