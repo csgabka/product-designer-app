@@ -1,16 +1,20 @@
 import { useProducts } from "../context/ProductsContext";
+import Spinner from 'react-bootstrap/Spinner';
 
 const Board = () => {
-    const { selectProductHandler } = useProducts();
+    const { selectedProduct, error, loading } = useProducts();
 
-    const selectProduct = (id) => {
-        selectProductHandler(id); 
-    }    
-    
     return (
-     <div>
-        {selectProduct()}
-     </div>
+    <>
+      {loading && <Spinner animation="border" />}
+      {error && <div>Couldn't find product!</div>}
+      {!loading && (
+        <>
+          <p>{selectedProduct.name}</p>
+          <img src={selectedProduct.image} alt={selectedProduct.name} />
+        </>
+      )}
+    </>
     );
 }
 

@@ -2,26 +2,31 @@
   "products": [
     {
       "id": "1",
+      "slug": "t-shirt",
       "name": "T-shirt",
       "image": "https://via.placeholder.com/150"
     },
     {
       "id": "2",
+      "slug": "hoodie",
       "name": "Hoodie",
       "image": "https://via.placeholder.com/150"
     },
     {
       "id": "3",
+      "slug": "sneakers",
       "name": "Sneakers",
       "image": "https://via.placeholder.com/150"
     },
     {
       "id": "4",
+      "slug": "hat",
       "name": "Hat",
       "image": "https://via.placeholder.com/150"
     },
     {
       "id": "5",
+      "slug": "socks",
       "name": "Socks",
       "image": "https://via.placeholder.com/150"
     }

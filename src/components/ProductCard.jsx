@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import { useProducts } from "../context/ProductsContext";
 
 
 function ProductCard(props) {
+    const { selectProductHandler } = useProducts();
     const product = props.product;
     return (
     <>   
@@ -13,7 +15,7 @@ function ProductCard(props) {
         <Card style={{ width: '200px'}}>
           <img src={product.image} alt={product.name} />
           <Button variant="outline-secondary">
-            <Link to={product.name.toLowerCase()}>{product.name}</Link>
+            <Link to={product.slug} onClick={() => selectProductHandler(product.id)}>{product.name}</Link>
           </Button>
         </Card>
       </Col>

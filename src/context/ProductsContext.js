@@ -5,9 +5,12 @@ const productsContext = createContext();
 
 export function ProductsContextProvider({children}) {
 
-    const [products, setProducts] = useState([]);
+    //Error handling
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
+
+    const [products, setProducts] = useState([]);
+    const [selectedProduct, setSelectedProduct] = useState([]);
 
     //RetrieveProducts
     const retrieveProducts = async () => {
@@ -23,8 +26,20 @@ export function ProductsContextProvider({children}) {
     };
 
     //SelectProduct
-    const selectProductHandler = (id) => {
-        //does nothing so far
+    const selectProductHandler = async (id) => {
+      try {
+        const response = await api.get('./products');
+        response.data.map(item => {
+          if (item.id === id) {
+            setSelectedProduct(item);
+          }
+        })
+        setError(false);
+      } catch (error) {
+        setError(true);
+        
+      }
+      setLoading(false);
     }
 
     const value = {
@@ -32,7 +47,8 @@ export function ProductsContextProvider({children}) {
         loading,
         products,
         retrieveProducts,
-        selectProductHandler
+        selectProductHandler,
+        selectedProduct
     }
     
     return <productsContext.Provider value = { value }>

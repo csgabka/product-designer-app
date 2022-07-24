@@ -15,7 +15,7 @@ function App() {
         <ProductsContextProvider>
           <Routes>
             <Route path="/" element={<Home />} /> 
-            <Route path=":id" element={<ProductPage />}   />
+            <Route path=":slug" element={<ProductPage />} />
           </Routes>
         </ProductsContextProvider>
       </BrowserRouter>
