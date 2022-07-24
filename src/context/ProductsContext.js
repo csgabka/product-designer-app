@@ -29,15 +29,11 @@ export function ProductsContextProvider({children}) {
     const selectProductHandler = async (id) => {
       try {
         const response = await api.get('./products');
-        response.data.map(item => {
-          if (item.id === id) {
-            setSelectedProduct(item);
-          }
-        })
+        let item = response.data.find(item => item.id === id);
+        setSelectedProduct(item);
         setError(false);
       } catch (error) {
         setError(true);
-        
       }
       setLoading(false);
     }
