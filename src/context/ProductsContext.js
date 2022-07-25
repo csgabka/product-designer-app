@@ -19,17 +19,17 @@ export function ProductsContextProvider({children}) {
         setProducts(response.data);
         setError(false);
       } catch (error) {
-        setError(true);
         setProducts([]);
+        setError(true);
       }
       setLoading(false);
     };
 
     //SelectProduct
-    const selectProductHandler = async (id) => {
+    const selectProductHandler = async (slug) => {
       try {
         const response = await api.get('./products');
-        let item = response.data.find(item => item.id === id);
+        let item = response.data.find(item => item.slug === slug);
         setSelectedProduct(item);
         setError(false);
       } catch (error) {

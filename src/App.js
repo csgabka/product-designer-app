@@ -3,6 +3,7 @@ import { ProductsContextProvider } from "./context/ProductsContext";
 
 import Home from './components/Home';
 import ProductPage from './components/ProductPage';
+import Error from './components/Error';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,7 +16,8 @@ function App() {
         <ProductsContextProvider>
           <Routes>
             <Route path="/" exact element={<Home />} /> 
-            <Route path="product/:slug" element={<ProductPage />} />
+              <Route path="product/:slug" element={<ProductPage />} />
+              <Route path="*" element={<Error />} />
           </Routes>
         </ProductsContextProvider>
       </BrowserRouter>
