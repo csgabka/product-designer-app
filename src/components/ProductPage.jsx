@@ -24,7 +24,7 @@ function ProductPage() {
       <Header />
       {loading && <Spinner animation="border" />}
       {error && <div>Something went wrong</div>}
-      {!loading && !error && 
+      {!loading && !error && selectedProduct &&
       <>
         <Sidebar />
         <Canvas />
